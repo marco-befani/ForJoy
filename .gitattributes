@@ -1,0 +1,11 @@
+# Normalizza gli a capo: tutti i file di testo vengono salvati nel
+# repository con LF, indipendentemente dal sistema operativo di chi fa
+# il commit. Elimina gli avvisi di Git su Windows relativi a LF/CRLF.
+* text=auto eol=lf
+
+# I file binari vanno lasciati esattamente come sono.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary

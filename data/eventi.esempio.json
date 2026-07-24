@@ -1,0 +1,12 @@
+[
+  {
+    "id": "concerto-natale-2026",
+    "title": "Concerto di Natale",
+    "date": "2026-12-20",
+    "time": "21:00",
+    "location": "Teatro Puccini, Firenze",
+    "description": "Il tradizionale concerto di Natale del coro, con brani gospel classici e contemporanei.",
+    "image": "assets/img/eventi/concerto-natale-2026.jpg",
+    "ticketLink": "https://esempio.it/biglietti"
+  }
+]

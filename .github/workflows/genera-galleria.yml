@@ -1,0 +1,43 @@
+name: Genera galleria.js
+
+# Si attiva ad ogni push su main che tocca le foto o gli script della galleria.
+# Rigenera data/galleria.js e lo committa in automatico, senza bisogno di
+# lanciare nulla a mano.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "galleria/**"
+      - "scripts/genera-galleria.js"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build-galleria:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Genera data/galleria.js
+        run: node scripts/genera-galleria.js
+
+      - name: Commit se ci sono cambiamenti
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/galleria.js
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: rigenera galleria.js [skip ci]"
+            git push
+          else
+            echo "Nessuna modifica a galleria.js"
+          fi
