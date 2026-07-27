@@ -71,11 +71,25 @@ Modifica `data/media.js` (l'array dentro `window.FORJOY_MEDIA`):
 Il sito è pronto per Netlify, Vercel o GitHub Pages (nessuna build richiesta,
 si pubblica la cartella così com'è).
 
-Il form contatti usa la sintassi di **Netlify Forms** (attributo
-`data-netlify="true"`): funziona senza configurazione se pubblicato su
-Netlify. Se si sceglie un altro host, sostituire l'attributo `action` del
-form in `contatti.html` con l'endpoint di un servizio equivalente (es.
-Formspree) — nessun'altra modifica necessaria.
+### Form contatti
+
+Il form di `contatti.html` è gestito da **FormSubmit.co**: nessun backend,
+nessuna registrazione, funziona su qualsiasi hosting (GitHub Pages,
+Register.it, Netlify…). Le richieste arrivano via email a **m.befani@gmail.com**.
+
+**Attivazione (da fare una volta sola, a sito online):**
+
+1. Aprire la pagina Contatti sul dominio pubblico e inviare un messaggio di prova.
+2. FormSubmit invia a `m.befani@gmail.com` una mail di conferma: cliccare il link.
+   Finché non lo si clicca, **nessun messaggio viene recapitato**.
+3. Nella stessa mail viene fornito un endpoint mascherato
+   (`https://formsubmit.co/<token>`): sostituirlo nell'attributo `action`
+   del form. **Questo passaggio è importante**: finché l'indirizzo resta
+   nell'`action`, è visibile in chiaro nel sorgente della pagina e
+   raccoglibile dai bot di spam.
+
+Per cambiare destinatario basta modificare l'indirizzo nell'`action`
+(es. `info@forjoy.it` quando la casella sul dominio sarà attiva).
 
 Se si usa GitHub Pages, va comunque attivata l'opzione "Read and write
 permissions" per le GitHub Actions (Settings → Actions → General) perché lo
