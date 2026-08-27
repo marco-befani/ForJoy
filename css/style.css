@@ -257,6 +257,7 @@ p {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  padding: 0;
   background: radial-gradient(120% 100% at 50% 0%, #2a2029 0%, var(--bg) 65%);
 }
 
@@ -306,7 +307,7 @@ p {
   }
 
   .hero-content {
-    padding-top: 1.6rem;
+    padding-top: 1rem;
   }
 }
 
