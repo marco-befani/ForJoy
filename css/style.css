@@ -266,6 +266,12 @@ p {
   z-index: 0;
 }
 
+.hero-media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-media img,
 .hero-media video {
   width: 100%;
@@ -732,6 +738,31 @@ section {
   font-size: clamp(2rem, 4vw, 2.8rem);
   color: var(--gold-soft);
   display: block;
+}
+
+/* Animazione di comparsa quando la sezione entra nello schermo (anche da
+   cellulare, allo scroll). Ogni statistica compare in sequenza. */
+[data-reveal] .stat {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-reveal].is-visible .stat:nth-child(1) { transition-delay: 0s; }
+[data-reveal].is-visible .stat:nth-child(2) { transition-delay: 0.15s; }
+[data-reveal].is-visible .stat:nth-child(3) { transition-delay: 0.3s; }
+
+[data-reveal].is-visible .stat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] .stat {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .stat .label {
