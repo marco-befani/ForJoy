@@ -281,20 +281,32 @@ p {
 }
 
 @media (max-width: 760px) {
+  /* Sotto i 760px passiamo da "foto a tutto schermo con testo sopra" a
+     "foto in alto, testo sotto": elimina lo spazio vuoto che restava
+     tra la foto (ridotta con "contain") e l'inizio del titolo. */
   .hero {
-    min-height: 72vh;
+    display: block;
+    min-height: auto;
   }
 
-  /* Sotto i 760px la foto orizzontale entrerebbe in un riquadro molto
-     stretto e verticale: con "cover" verrebbe tagliata ai lati,
-     mostrando solo 2-3 persone. Con "contain" si vede l'inquadratura
-     intera (tutto il gruppo), con lo sfondo scuro del tema a fare da
-     cornice sopra e sotto. Questa regola deve stare DOPO quella con
-     "cover" qui sopra: a parità di specificità vince l'ultima
-     dichiarata nel foglio di stile, non quella dentro la media query. */
+  .hero-media {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  /* Questa regola deve stare DOPO quella con "cover" qui sopra: a
+     parità di specificità vince l'ultima dichiarata nel foglio di
+     stile, non quella dentro la media query. object-position: top
+     rimuove lo spazio vuoto sopra la foto. */
   .hero-media img,
   .hero-media video {
     object-fit: contain;
+    object-position: top;
+  }
+
+  .hero-content {
+    padding-top: 1.6rem;
   }
 }
 
@@ -372,8 +384,7 @@ p {
     gap: 1.4rem;
   }
   .hero-brand-mark {
-    height: 140px;
-    align-self: flex-end;
+    display: none;
   }
 }
 
