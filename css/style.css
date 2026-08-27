@@ -284,7 +284,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(18,16,20,0.05) 0%, rgba(18,16,20,0.1) 40%, rgba(18,16,20,0.55) 68%, var(--bg) 96%);
+  background: linear-gradient(180deg, rgba(18,16,20,0.05) 0%, rgba(18,16,20,0.16) 40%, rgba(18,16,20,0.68) 68%, var(--bg) 94%);
 }
 
 .hero-content {
@@ -292,6 +292,11 @@ p {
   z-index: 1;
   padding-top: 6rem;
   padding-bottom: 4.5rem;
+  text-shadow: 0 2px 16px rgba(8, 6, 8, 0.75), 0 1px 4px rgba(8, 6, 8, 0.9);
+}
+
+.hero .eyebrow {
+  color: var(--gold-soft);
 }
 
 .hero h1 {
@@ -308,6 +313,10 @@ p {
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: 1.8rem;
+}
+
+.hero-actions .btn {
+  text-shadow: none;
 }
 
 /* ---------- Logo in sovrapposizione nella hero, allineato al testo ---------- */
@@ -327,6 +336,7 @@ p {
 
 .hero-lower-text .lede {
   margin-top: 0;
+  color: var(--ink);
 }
 
 .hero-brand-mark {
