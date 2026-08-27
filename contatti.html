@@ -44,34 +44,17 @@
   <div class="container two-col" style="align-items:start">
 
     <!--
-      Modulo gestito da FormSubmit.co: servizio gratuito, senza backend e
-      indipendente dall'hosting (funziona su GitHub Pages, Register.it,
-      Netlify, ovunque). Le richieste arrivano via email a m.befani@gmail.com.
-
-      ATTIVAZIONE (una volta sola, obbligatoria): dopo la pubblicazione,
-      inviare un primo messaggio di prova dal sito online. FormSubmit
-      manderà a m.befani@gmail.com una mail di conferma con un link da
-      cliccare. Finché non viene cliccato, i messaggi NON vengono
-      recapitati.
-
-      Dopo l'attivazione, nella mail di conferma viene fornito anche un
-      endpoint "mascherato" (es. https://formsubmit.co/ajax/xxxxxxxx):
-      sostituirlo nell'action qui sotto per non lasciare l'indirizzo
-      email in chiaro nell'HTML.
-
-      Per cambiare destinatario in futuro basta modificare l'indirizzo
-      nell'attributo action.
+      Modulo pronto per Netlify Forms (funziona senza backend se il sito
+      è pubblicato su Netlify: rileva automaticamente i form con
+      data-netlify="true"). Se il sito viene invece pubblicato altrove
+      (Vercel, GitHub Pages), basta sostituire l'attributo action con
+      l'endpoint di un servizio come Formspree — nessun'altra modifica
+      necessaria.
     -->
-    <form class="contact-form" name="contatti" method="POST" action="https://formsubmit.co/m.befani@gmail.com">
-      <!-- Opzioni FormSubmit -->
-      <input type="hidden" name="_subject" value="Nuova richiesta dal sito For Joy">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" id="form-next" value="">
-
-      <!-- Honeypot antispam (campo invisibile: se compilato, invio scartato) -->
-      <p style="position:absolute;left:-9999px" aria-hidden="true">
-        <label>Non compilare questo campo: <input name="_honey" tabindex="-1" autocomplete="off"></label>
+    <form class="contact-form" name="contatti" method="POST" data-netlify="true" netlify-honeypot="azienda" action="contatti-inviato.html">
+      <input type="hidden" name="form-name" value="contatti">
+      <p style="position:absolute;left:-9999px">
+        <label>Non compilare questo campo: <input name="azienda" tabindex="-1" autocomplete="off"></label>
       </p>
 
       <div class="form-row">
@@ -123,12 +106,15 @@
         </div>
         <div class="item" style="margin-top:1.2rem">
           <div>
-            <div class="label">Scrivici</div>
-            <div>Usa il modulo qui a fianco: ci arriva direttamente in posta.</div>
+            <div class="label">Email</div>
+            <div><a href="mailto:m.befani@gmail.com">m.befani@gmail.com</a></div>
           </div>
         </div>
         <div class="item" style="margin-top:1.8rem">
-          <a class="btn btn-instagram" href="https://www.instagram.com/forjoygospelchoir" target="_blank" rel="noopener">Seguici su Instagram</a>
+          <a class="btn btn-instagram" href="https://www.instagram.com/forjoygospelchoir" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1"/></svg>
+            Seguici su Instagram
+          </a>
         </div>
       </div>
     </div>
@@ -161,11 +147,5 @@
 
 <script src="js/main.js"></script>
 <script>document.getElementById("anno").textContent = new Date().getFullYear();</script>
-<script>
-  // FormSubmit richiede un URL assoluto per la pagina di ringraziamento.
-  // Lo calcoliamo a runtime così funziona sia in locale sia su qualsiasi dominio.
-  document.getElementById("form-next").value =
-    new URL("contatti-inviato.html", window.location.href).href;
-</script>
 </body>
 </html>

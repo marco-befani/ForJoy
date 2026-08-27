@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="empty-state">
           <h3 class="mt-0">Nessun concerto in programma al momento</h3>
           <p>Segui il nostro profilo Instagram: è il primo posto dove annunciamo le nuove date.</p>
-          <a class="btn btn-instagram" href="https://www.instagram.com/forjoygospelchoir" target="_blank" rel="noopener">Seguici su Instagram</a>
+          <a class="btn btn-instagram" href="https://www.instagram.com/forjoygospelchoir" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1"/></svg>
+            Seguici su Instagram
+          </a>
         </div>
       `;
       return;
