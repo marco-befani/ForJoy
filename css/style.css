@@ -304,6 +304,45 @@ p {
   margin-top: 1.8rem;
 }
 
+/* ---------- Logo in sovrapposizione nella hero, allineato al testo ---------- */
+
+.hero-lower {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-top: 1.6rem;
+}
+
+.hero-lower-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-lower-text .lede {
+  margin-top: 0;
+}
+
+.hero-brand-mark {
+  height: clamp(260px, 32vw, 600px);
+  width: auto;
+  flex-shrink: 0;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .hero-lower {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem;
+  }
+  .hero-brand-mark {
+    height: 140px;
+    align-self: flex-end;
+  }
+}
+
 /* ---------- Sections ---------- */
 
 section {
@@ -897,4 +936,35 @@ textarea {
   padding: 7.5rem 0 3.5rem;
   background: radial-gradient(120% 100% at 50% 0%, #2a2029 0%, var(--bg) 60%);
   border-bottom: 1px solid var(--line);
+}
+
+.page-hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.page-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-hero-logo {
+  height: 150px;
+  width: auto;
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+
+@media (max-width: 760px) {
+  .page-hero .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+  .page-hero-logo {
+    height: 80px;
+    align-self: flex-end;
+  }
 }
