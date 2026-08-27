@@ -674,10 +674,11 @@ section {
 }
 
 .director blockquote {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   text-transform: none;
-  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
-  line-height: 1.35;
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  line-height: 1.6;
   color: var(--ink);
   margin: 0 0 1.2rem;
   font-weight: 400;
