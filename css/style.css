@@ -667,6 +667,7 @@ section {
 
 .director img.portrait {
   width: 100%;
+  max-width: 260px;
   aspect-ratio: 4/5;
   object-fit: cover;
   border-radius: var(--radius);
@@ -938,33 +939,3 @@ textarea {
   border-bottom: 1px solid var(--line);
 }
 
-.page-hero .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.5rem;
-}
-
-.page-hero-text {
-  flex: 1;
-  min-width: 0;
-}
-
-.page-hero-logo {
-  height: 150px;
-  width: auto;
-  flex-shrink: 0;
-  opacity: 0.95;
-}
-
-@media (max-width: 760px) {
-  .page-hero .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
-  }
-  .page-hero-logo {
-    height: 80px;
-    align-self: flex-end;
-  }
-}
