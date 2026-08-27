@@ -260,22 +260,6 @@ p {
   background: radial-gradient(120% 100% at 50% 0%, #2a2029 0%, var(--bg) 65%);
 }
 
-@media (max-width: 760px) {
-  .hero {
-    min-height: 72vh;
-  }
-
-  /* Sotto i 760px la foto orizzontale entrerebbe in un riquadro molto
-     stretto e verticale: con "cover" verrebbe tagliata ai lati,
-     mostrando solo 2-3 persone. Con "contain" si vede l'inquadratura
-     intera (tutto il gruppo), con lo sfondo scuro del tema a fare da
-     cornice sopra e sotto. */
-  .hero-media img,
-  .hero-media video {
-    object-fit: contain;
-  }
-}
-
 .hero-media {
   position: absolute;
   inset: 0;
@@ -294,6 +278,24 @@ p {
   height: 100%;
   object-fit: cover;
   opacity: 0.95;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 72vh;
+  }
+
+  /* Sotto i 760px la foto orizzontale entrerebbe in un riquadro molto
+     stretto e verticale: con "cover" verrebbe tagliata ai lati,
+     mostrando solo 2-3 persone. Con "contain" si vede l'inquadratura
+     intera (tutto il gruppo), con lo sfondo scuro del tema a fare da
+     cornice sopra e sotto. Questa regola deve stare DOPO quella con
+     "cover" qui sopra: a parità di specificità vince l'ultima
+     dichiarata nel foglio di stile, non quella dentro la media query. */
+  .hero-media img,
+  .hero-media video {
+    object-fit: contain;
+  }
 }
 
 .hero-media::after {
